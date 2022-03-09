@@ -1,4 +1,4 @@
-<h1>All developers</h1>
+<h1>Result developers</h1>
 
 <table class="table">
   <thead>
@@ -9,7 +9,7 @@
       <th scope="col">Languages</th>
     </tr>
   </thead>
-  <% @developers.each do |developer| %>
+  <% @dev.each do |developer| %>
   <tbody>
     <tr>
       <th scope="row"><%= developer.id %></th>
@@ -30,5 +30,3 @@
   </tbody>
     <% end %>
 </table>
-
-<%= link_to "Search page", search_path, class: "d-grid gap-2 d-md-flex justify-content-md-end" %>

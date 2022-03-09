@@ -1,0 +1,19 @@
+<h1>Search page</h1>
+
+<%= form_with do |form| %>
+  <div class="mb-3">   
+    <%= form.label :name %>
+    <%= form.text_field :name, class: "form-control", placeholder: "Programming Language" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :code %>
+    <%= form.text_field :code, class: "form-control", placeholder: "Language" %>
+  </div>
+
+  <%= form.submit "Search", class: "btn btn-primary" %>
+<% end %>
+
+<% if @developer %>
+  <%= "alo" %>
+<% end %>

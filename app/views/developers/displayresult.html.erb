@@ -1,5 +1,5 @@
 <h1>Result developers</h1>
-
+<%if @dev%>
 <table class="table">
   <thead>
     <tr>
@@ -30,3 +30,8 @@
   </tbody>
     <% end %>
 </table>
+<%else%>
+<h1> No result</h1>
+<%end%>
+
+<%= link_to "Back to search page", search_path, class: "d-grid gap-2 d-md-block" %>

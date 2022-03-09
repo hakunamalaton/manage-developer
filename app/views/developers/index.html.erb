@@ -1,0 +1,31 @@
+<h1>All developers</h1>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Email</th>
+      <th scope="col">Programming Languages</th>
+      <th scope="col">Languages</th>
+    </tr>
+  </thead>
+  <% @developers.each do |developer| %>
+  <tbody>
+    <tr>
+      <th scope="row"><%= developer.id %></th>
+      <td><%= developer.email %></td>
+      <td>
+        <% all_pro_lan = developer.programming_languages.map do |lan| %>
+        <% lan.name %>
+        <% end %>
+        <%= all_pro_lan.join(", ") %>
+      </td>
+      <td>
+        <% all_lan = developer.languages.map do |lan| %>
+        <% lan.code %>
+        <% end %>
+        <%= all_lan.join(", ") %>
+      </td>
+    </tr>
+  </tbody>
+    <%end%>
+</table>

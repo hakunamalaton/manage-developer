@@ -10,5 +10,8 @@ Rails.application.routes.draw do
   post "search", to: "developers#get"
   get "search", to: "developers#new"
 
+  get "edit/:id", to: "developers#edit"
+  post "edit/:id", to: "developers#createinterview"
+
   get "/", to: "developers#index"
 end

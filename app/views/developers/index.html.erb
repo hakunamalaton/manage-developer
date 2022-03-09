@@ -13,7 +13,7 @@
   <tbody>
     <tr>
       <th scope="row"><%= developer.id %></th>
-      <td><%= developer.email %></td>
+      <td><%= link_to developer.email, "edit/#{developer.id}" %></td>
       <td>
         <% all_pro_lan = developer.programming_languages.map do |lan| %>
         <% lan.name %>

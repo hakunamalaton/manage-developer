@@ -1,0 +1,32 @@
+<h1>Edit page</h1>
+
+<%= form_with model: @interview, url: "#{@edit_dev.id}" do |form| %>
+
+    <%= form.label :score %>
+    <%= form.text_field :score, class: "form-control", placeholder: "1-5" %>
+    <%= form.submit "Create interview", class: "btn btn-primary mt-3" %>
+   
+<% end %>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Interview</th>
+      <th scope="col">Score</th>
+    </tr>
+  </thead>
+  <% @edit_dev.interviews.each_with_index do |developer,index| %>
+  <tbody>
+    <tr>
+      <th scope="row"><%= index %></th>
+      <td>
+        <%= index %>
+      </td>
+      <td>
+        <%= developer.score %>
+      </td>
+    </tr>
+  </tbody>
+    <% end %>
+</table>

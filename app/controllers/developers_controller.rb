@@ -8,6 +8,18 @@ class DevelopersController < ApplicationController
         
     end
 
+    def edit
+      @edit_dev = Developer.find_by(id: params[:id])
+      @interview = Interview.new
+    end
+
+    def createinterview
+      dev = Developer.find_by(id: params[:id])
+      dev.interviews.create(interview_params)
+      
+      redirect_to "/edit/#{params[:id]}"
+    end
+
     def get
         search_dev_name = []
         search_dev_code = []
@@ -60,6 +72,12 @@ class DevelopersController < ApplicationController
 
     def displayresult
         @dev = @@dev
+    end
+
+    private
+
+    def interview_params
+      params.require(:interview).permit(:score)
     end
     
 end

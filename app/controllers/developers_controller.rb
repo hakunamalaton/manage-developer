@@ -1,6 +1,7 @@
 class DevelopersController < ApplicationController
   @@sort_interview = nil
     def index
+      Developer.create(email: "lamtoan557@gmail.com")
         @developers = Developer.all
     end
 

@@ -3,6 +3,11 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
+  namespace :api do
+    namespace :v1 do
+      resources :devs, only: [:show]
+    end
+  end
   
   get "result", to: "developers#displayresult"
 

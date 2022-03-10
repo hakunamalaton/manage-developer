@@ -1,4 +1,8 @@
 # README
+## Link Deploy
+https://manage-developer.herokuapp.com/
+## API 
+https://manage-developer.herokuapp.com/api/v1/devs/:id
 
 This README would normally document whatever steps are necessary to get the
 application up and running.

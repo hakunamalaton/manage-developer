@@ -9,7 +9,7 @@
       <th scope="col">Languages</th>
     </tr>
   </thead>
-  <% @developers.each do |developer| %>
+  <% @developers.to_a.each do |developer| %>
   <tbody>
     <tr>
       <th scope="row"><%= developer.id %></th>

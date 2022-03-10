@@ -14,5 +14,8 @@ Rails.application.routes.draw do
   get "edit/:id", to: "developers#edit"
   post "edit/:id", to: "developers#createinterview"
 
+  get "edit/:id/increase", to: "developers#increase"
+  get "edit/:id/descrease", to: "developers#descrease"
+
   get "/", to: "developers#index"
 end

@@ -5,9 +5,16 @@
     <%= form.label :score %>
     <%= form.text_field :score, class: "form-control", placeholder: "1-5" %>
     <%= form.submit "Create interview", class: "btn btn-primary mt-3" %>
-   
 <% end %>
 
+<div class="d-grid gap-2 d-md-flex justify-content-md-end">
+  <%= link_to raw("<button class=\"btn btn-primary\" type=\"button\">Score increasing</button>"), "#{@edit_dev.id}/increase" %>
+</div>
+<div class="d-grid gap-2 d-md-flex justify-content-md-end">
+  <%= link_to raw("<button class=\"btn btn-primary mt-3\" type=\"button\">Score descreasing</button>"), "#{@edit_dev.id}/descrease" %>
+</div>
+
+<% if @sort_interview == nil %>
 <table class="table">
   <thead>
     <tr>
@@ -34,5 +41,29 @@
   </tbody>
     <% end %>
 </table>
+<% else %>
+  <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Interview</th>
+      <th scope="col">Score</th>
+    </tr>
+  </thead>
+  <% @sort_interview.each_with_index do |interview,index| %>
+  <tbody>
+    <tr>
+      <th scope="row"><%= index %></th>
+      <td>
+        <%= index %>
+      </td>
+      <td>
+        <%= interview.score %>
+      </td>
+    </tr>
+  </tbody>
+    <% end %>
+</table>
+<% end %>
 
 <%= link_to "Return home", "/", class: "d-grid gap-2 d-md-block" %>

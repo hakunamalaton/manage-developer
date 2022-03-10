@@ -1,5 +1,5 @@
 class DevelopersController < ApplicationController
-    
+  @@sort_interview = nil
     def index
         @developers = Developer.all
     end
@@ -8,8 +8,24 @@ class DevelopersController < ApplicationController
         
     end
 
+    def increase
+      @@sort_interview = Developer.find_by(id: params[:id]).interviews.order(:score)
+      redirect_to "/edit/#{params[:id]}"
+    end
+
+    def descrease
+      @@sort_interview = Developer.find_by(id: params[:id]).interviews.order(score: :desc)
+      redirect_to "/edit/#{params[:id]}"
+    end
+
     def edit
+      @init = "Sorting by ..."
       @edit_dev = Developer.find_by(id: params[:id])
+      @sort_interview = nil
+      if @@sort_interview
+        @sort_interview = @@sort_interview
+        @@sort_interview = nil
+      end
       @interview = Interview.new
     end
 

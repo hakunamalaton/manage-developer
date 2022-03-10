@@ -14,9 +14,10 @@
       <th scope="col">#</th>
       <th scope="col">Interview</th>
       <th scope="col">Score</th>
+      <th scope="col">Delete?</th>
     </tr>
   </thead>
-  <% @edit_dev.interviews.each_with_index do |developer,index| %>
+  <% @edit_dev.interviews.each_with_index do |interview,index| %>
   <tbody>
     <tr>
       <th scope="row"><%= index %></th>
@@ -24,9 +25,14 @@
         <%= index %>
       </td>
       <td>
-        <%= developer.score %>
+        <%= interview.score %>
+      </td>
+      <td>
+        <%= link_to raw("<i class=\"btn btn-danger bi bi-trash\"></i>"), "#{@edit_dev.id}/delete/#{interview.id}"  %>
       </td>
     </tr>
   </tbody>
     <% end %>
 </table>
+
+<%= link_to "Return home", "/", class: "d-grid gap-2 d-md-block" %>

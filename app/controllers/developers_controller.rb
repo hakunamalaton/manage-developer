@@ -20,6 +20,12 @@ class DevelopersController < ApplicationController
       redirect_to "/edit/#{params[:id]}"
     end
 
+    def destroy_interview
+      des_interview = Interview.find_by(id: params[:iid])
+      des_interview.destroy
+      redirect_to "/edit/#{params[:id]}"
+    end
+
     def get
         search_dev_name = []
         search_dev_code = []

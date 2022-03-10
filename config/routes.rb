@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   post "search", to: "developers#get"
   get "search", to: "developers#new"
 
+  get "edit/:id/delete/:iid", to: "developers#destroy_interview"
   get "edit/:id", to: "developers#edit"
   post "edit/:id", to: "developers#createinterview"
 

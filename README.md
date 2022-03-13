@@ -3,26 +3,8 @@
 https://manage-developer.herokuapp.com/
 ## API 
 https://manage-developer.herokuapp.com/api/v1/devs/:id
-
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## Functional Requirements
+* The application could find the developers by programming languages and languages which they use to communicate.
+* The application cound add/delete interviews in developers. Anyone access the website that can do it.
+* Interviews can be sorted by score (increase or decrease).
+* You can access the API that show details of developer. The id is the same as id in list all at homepage.

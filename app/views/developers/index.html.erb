@@ -9,7 +9,26 @@
       <th scope="col">Languages</th>
     </tr>
   </thead>
-  
+  <% @developers.each do |developer| %>
+  <tbody>
+    <tr>
+      <th scope="row"><%= developer.id %></th>
+      <td><%= link_to developer.email, "edit/#{developer.id}" %></td>
+      <td>
+        <% all_pro_lan = developer.programming_languages.map do |lan| %>
+        <% lan.name %>
+        <% end %>
+        <%= all_pro_lan.join(", ") %>
+      </td>
+      <td>
+        <% all_lan = developer.languages.map do |lan| %>
+        <% lan.code %>
+        <% end %>
+        <%= all_lan.join(", ") %>
+      </td>
+    </tr>
+  </tbody>
+    <% end %>
 </table>
 
 <%= link_to "Search page", search_path, class: "d-grid gap-2 d-md-flex justify-content-md-end" %>

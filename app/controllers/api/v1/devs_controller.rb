@@ -14,7 +14,7 @@ class Api::V1::DevsController < ApplicationController
       },
       "languages" => languages,
       "programming_languages" => pro_lans
-    }, cached: true
+    }
   end
 
   def get_all_details

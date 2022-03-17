@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       resources :devs, only: [:show]
-      get "/getall", to: "devs#get_all"
+      get "/getall", to: "devs#get_all_details"
     end
   end
   

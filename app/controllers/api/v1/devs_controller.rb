@@ -3,18 +3,18 @@ class Api::V1::DevsController < ApplicationController
   # rails cache
   def show
     # @developer.languages.pluck(:code) 
-    languages = @developer.languages.pluck(:code)
+    # @languages = @developer.languages.pluck(:code)
 
-    pro_lans = @developer.programming_languages.pluck(:name)
+    # @pro_lans = @developer.programming_languages.pluck(:name)
 
-    render json: {
-      "developer" => {
-          "id" => @developer.id,
-          "email" => @developer.email
-      },
-      "languages" => languages,
-      "programming_languages" => pro_lans
-    }
+    # render json: {
+    #   "developer" => {
+    #       "id" => @developer.id,
+    #       "email" => @developer.email
+    #   },
+    #   "languages" => languages,
+    #   "programming_languages" => pro_lans
+    # }
   end
 
   def get_all_details

@@ -18,7 +18,15 @@ class Api::V1::DevsController < ApplicationController
   end
 
   def get_all_details
-    render json: Developer.get_all
+    result = Developer.get_all
+    result = result.map do |developer|
+      {
+        developer: Developer.where(id: developer[:developer]).pluck(:email)[0],
+        programming_languages: ProgrammingLanguage.where(id: developer[:programming_languages]).pluck(:name),
+        languages: Language.where(id: developer[:languages]).pluck(:code)
+      }
+    end
+    render json: result
   end
 
   private

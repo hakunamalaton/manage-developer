@@ -4,19 +4,16 @@ class Developer < ApplicationRecord
   has_many :interviews
 
   def self.get_all
-    Rails.cache.fetch("developers",expires_in: 12.hours) do
-      result = []
+    Rails.cache.fetch("#{cache_versioning}/get_all",expires_in: 15.minutes) do
       developers = Developer.eager_load(:programming_languages, :languages)
 
-      developers.each do |developer|
-        detail_info = {
-            developer: developer.email,
-            programming_languages: developer.programming_languages.pluck(:name),
-            languages: developer.languages.pluck(:code)
+      developers.map do |developer|
+        {
+            developer: developer.id,
+            programming_languages: developer.programming_languages.pluck(:id),
+            languages: developer.languages.pluck(:id)
         }
-        result += [detail_info]
       end
-      result
     end
   end
 

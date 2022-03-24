@@ -26,6 +26,7 @@ class Api::V1::DevsController < ApplicationController
         languages: Language.where(id: developer[:languages]).pluck(:code)
       }
     end
+
     render json: result
   end
 

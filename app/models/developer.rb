@@ -3,7 +3,6 @@ class Developer < ApplicationRecord
   has_and_belongs_to_many :languages
   has_many :interviews
 
-  after_save :set_invalidate_caching
 
   def self.get_all
     Rails.cache.fetch([self, :get_all],expires_in: 15.minutes) do
@@ -18,13 +17,7 @@ class Developer < ApplicationRecord
       end
     end
   end
-  
-  private
 
-  def set_invalidate_caching
-    Rails.cache.delete([self, :get_all])
-    return true
-  end
 
   validates :email, presence: true, uniqueness: true
 end

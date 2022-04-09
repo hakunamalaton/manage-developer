@@ -13,7 +13,7 @@ module Minidev
     
     # localhost
     config.cache_store = :redis_store, {
-      host: "https://manage-developer.herokuapp.com",
+      host: "https://manage-developer.herokuapp.com/",
       port: 6379,
       db: 0,
     }, {expires_in: 7.days}

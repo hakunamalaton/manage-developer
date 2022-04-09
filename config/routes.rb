@@ -22,6 +22,7 @@ Rails.application.routes.draw do
 
   get "edit/:id/increase", to: "developers#increase"
   get "edit/:id/descrease", to: "developers#descrease"
+  post "/create_developer", to: "developers#create"
 
   get "/", to: "developers#index"
 end

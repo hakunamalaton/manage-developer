@@ -1,8 +1,10 @@
 class DevelopersController < ApplicationController
+  protect_from_forgery with: :null_session
   @@sort_interview = nil
 
   def index
-    @developers = Developer.all
+    @developers = fetch_from_redis
+    render json: @developers
   end
 
   def new
@@ -101,10 +103,34 @@ class DevelopersController < ApplicationController
       @dev = @@dev
   end
 
+  def create
+    new_developer = Developer.new(email: params[:email])
+
+    if new_developer.save
+      render json: new_developer
+    end
+  end
+
   private
 
   def interview_params
     params.require(:interview).permit(:score)
   end
-    
+
+  def fetch_from_redis
+    begin
+      developers = $redis.get "developers"
+      if developers.nil?
+        developers = Developer.all.to_json
+        $redis.set "developers", developers
+      end
+      developers = JSON.load developers
+    rescue => error 
+      p error.inspect
+      developers = Developer.all
+    end
+    developers 
+  end
+
+
 end

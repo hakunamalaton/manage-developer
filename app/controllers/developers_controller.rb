@@ -4,7 +4,6 @@ class DevelopersController < ApplicationController
 
   def index
     @developers = fetch_from_redis
-    render json: @developers
   end
 
   def new

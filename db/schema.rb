@@ -11,9 +11,6 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema[7.0].define(version: 2022_03_09_171645) do
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-
   create_table "developers", force: :cascade do |t|
     t.string "email"
     t.datetime "created_at", null: false
@@ -21,8 +18,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_09_171645) do
   end
 
   create_table "developers_languages", force: :cascade do |t|
-    t.bigint "developer_id", null: false
-    t.bigint "language_id", null: false
+    t.integer "developer_id", null: false
+    t.integer "language_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["developer_id"], name: "index_developers_languages_on_developer_id"
@@ -30,8 +27,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_09_171645) do
   end
 
   create_table "developers_programming_languages", force: :cascade do |t|
-    t.bigint "developer_id", null: false
-    t.bigint "programming_language_id", null: false
+    t.integer "developer_id", null: false
+    t.integer "programming_language_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["developer_id"], name: "index_developers_programming_languages_on_developer_id"
@@ -40,7 +37,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_09_171645) do
 
   create_table "interviews", force: :cascade do |t|
     t.integer "score"
-    t.bigint "developer_id", null: false
+    t.integer "developer_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["developer_id"], name: "index_interviews_on_developer_id"
